@@ -18,16 +18,26 @@ To use DatabaseHandler, ensure you have the following installed:
 - Pandas
 - A compatible SQL driver (e.g., `pyodbc` for MSSQL)
 
-## Build
+## Local Installation
+
+```bash
+pip install .
+```
+
+## PyPi Release
+
+### Build
 
 ```bash
 python -m build
 ```
 
-## Installation
+### Upload
+
+After pyproject.toml version bump...
 
 ```bash
-pip install .
+twine upload dist/*
 ```
 
 ## Usage
@@ -89,3 +99,9 @@ CONSTRAINT [PK_sample_table] PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 ```
+
+## Contributing
+
+Contributions are always welcome. If you’d like to improve the project, start by forking the repository and creating a new branch for your changes. Once your work is ready, push it to your fork and open a pull request. 
+
+Thank you for helping make this project better!
