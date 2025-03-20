@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tsqloader"
 version = "0.1.1"
-description = "Db handler wrapper for interacting with a SQL database using SQLAlchemy."
+description = "A database handler wrapper designed for interacting with an MSSQL server, built using SQLAlchemy."
 readme = {file = "README.md", content-type = "text/markdown"}
 authors = [{name = "sb5m"}]
 license = {text = "MIT"}
