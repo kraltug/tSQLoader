@@ -21,7 +21,7 @@ To use DatabaseHandler, ensure you have the following installed:
 ## Installation and Local Development
 
 ### 1. Ensure you have the following installed:
-   - [Python (version X.X.X)](https://www.python.org/downloads/)
+   - [Python](https://www.python.org/downloads/)
    - [Git](https://git-scm.com/downloads)
    - Any additional tools or software required for your project.
 
