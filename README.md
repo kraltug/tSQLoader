@@ -1,6 +1,6 @@
 # tSQLoader
 
-tSQLoader is a Python-based utility designed to simplify interactions with SQL databases using SQLAlchemy. This tool empowers users to manage and manipulate database records without requiring direct access to the production database or advanced SQL knowledge. It offers features such as seamless database connections, inserting or updating records using Pandas DataFrames, handling primary key conflicts gracefully, and verifying table existence. tSQLoader is particularly valuable for managing data pipelines, integrating data from various sources, and enabling a smoother, more accessible database interaction experience.
+tSQLoader is a Python-based utility designed to simplify interactions with MSSQL databases using SQLAlchemy. This tool empowers users to manage and manipulate database records without requiring direct access to the production database or advanced SQL knowledge. It offers features such as seamless database connections, inserting or updating records using Pandas DataFrames, handling primary key conflicts gracefully, and verifying table existence. tSQLoader is particularly valuable for managing data pipelines, integrating data from various sources, and enabling a smoother, more accessible database interaction experience.
 
 ## Features
 
@@ -16,10 +16,38 @@ To use DatabaseHandler, ensure you have the following installed:
 - Python 3.7 or higher
 - SQLAlchemy
 - Pandas
-- A compatible SQL driver (e.g., `pyodbc` for MSSQL)
+- A compatible SQL driver (right now, `pyodbc` for MSSQL)
 
-## Local Installation
+## Installation and Local Development
 
+### 1. Ensure you have the following installed:
+   - [Python (version X.X.X)](https://www.python.org/downloads/)
+   - [Git](https://git-scm.com/downloads)
+   - Any additional tools or software required for your project.
+
+### 2. Clone the repository:
+```bash
+git clone https://github.com/sb5m/tSQLoader.git
+cd tsqloader
+```
+### 3. Create Virtual Environment
+```bash
+python -m venv .venv
+```
+Activate the virtual environment with:
+```bash
+. .venv\Scripts\activate
+```
+or
+```bash
+source .venv/bin/activate
+```
+### 4. Upgrade pip and install dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+### 5. You are set. Package install can be performed with: 
 ```bash
 pip install .
 ```
@@ -75,7 +103,7 @@ db_handler.write_to_db(df, table_name="sample_table", primary_keys=["id"])
 
 ## Prerequisites
 
-Before using the `tSQLoader`, you need to set up the required database and table. Use the following SQL script to create the table structure to replicate the table needed to execute the example above:
+Before using `tSQLoader`, you need to set up the required database and table. Use the following SQL script to create the table structure to replicate the table needed to execute the example above:
 
 ```sql
 USE [SAMPLE_DB]
