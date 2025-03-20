@@ -13,7 +13,7 @@ tSQLoader is a Python-based utility designed to simplify interactions with MSSQL
 
 To use DatabaseHandler, ensure you have the following installed:
 
-- Python 3.7 or higher
+- Python 3.8 or higher
 - SQLAlchemy
 - Pandas
 - A compatible SQL driver (right now, `pyodbc` for MSSQL)
@@ -25,7 +25,7 @@ To use DatabaseHandler, ensure you have the following installed:
    - [Git](https://git-scm.com/downloads)
    - Any additional tools or software required for your project.
 
-### 2. Clone the repository:
+### 2. Clone the repository
 ```bash
 git clone https://github.com/sb5m/tSQLoader.git
 cd tsqloader
@@ -34,7 +34,7 @@ cd tsqloader
 ```bash
 python -m venv .venv
 ```
-Activate the virtual environment with:
+Activate the virtual environment.
 ```bash
 . .venv\Scripts\activate
 ```
@@ -47,7 +47,7 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
-### 5. You are set. Package install can be performed with: 
+### 5. Package install
 ```bash
 pip install .
 ```
